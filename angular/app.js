@@ -5,5 +5,14 @@ var app = angular.module('facturacionApp',[
 app.controller('mainCtrl', ['$scope', function($scope){
 
 
+}])
 
+app.config(['$routeProvider', function($routeProvider){
+		$routeProvider
+				.when('/', {
+						templateUrl: 'dashboard/dashboard.html'
+				})
+				.otherwise({
+						redirectTo: '/'
+				})
 }])

@@ -43,3 +43,43 @@
 9. Eliminar `Control Sidebar Toggle Button` ya que tampoco se usara (index)
 
 10. Eliminar `Control Sidebar` ya que tampoco se usara (index)
+
+## Preparando nuestro proyecto - Parte 2
+
+1. Crear el directorio `template` dentro del proyecto
+
+2. Crear el fichero `mensajes.html`
+
+3. Usar la directiva  `ng-include` para llamar al template `mensajes.html`
+    - `ng-include="'template/mensajes.html'"`
+
+4. Crear el fichero `notificaciones.html`
+
+5. Usar la directiva  `ng-include` para llamar al template `notificaciones.html`
+    - `ng-include="'template/notificaciones.html'"`
+
+6. Crear el fichero `usuario.html`
+
+7. Usar la directiva  `ng-include` para llamar al template `usuario.html`
+    - `ng-include="'template/usuario.html'"`
+
+8. Crear el fichero `menu.html`
+
+9. Usar la directiva  `ng-include` para llamar al template `menu.html`
+    - `ng-include="'template/menu.html'"`
+
+10. Colocar el `breadcrumb` dentro del `Main content`
+    - Despues, comentar el `breadcrumb`
+
+11. El `Main content` es la seccion que cambiara, usando nuestro enrutador
+    - Añadir a directiva `ng-view` en `Main content`
+
+12. Crear el directorio `dashboard` dentro del proyecto
+    - Crear el fichero `dashboard.html`
+    - Coloar el `breadcrumb` el el fichero creado
+
+13. Crear el enrutamiento en el archivo `angular/app.js`
+    - Codear la ruta por defecto, que apunte a `dashboard.html`
+
+14. Crear un fichero de configuracion de tipo .json en la raiz
+    - Se llamara `configuracion.json`
