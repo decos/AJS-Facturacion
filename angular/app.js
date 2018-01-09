@@ -1,9 +1,12 @@
 var app = angular.module('facturacionApp',[
-	'ngRoute',
+		'ngRoute',
+		'facturacionApp.configuracion'
 	]);
 
-app.controller('mainCtrl', ['$scope', function($scope){
+app.controller('mainCtrl', ['$scope', 'Configuracion', function($scope, $configuracion){
 
+		$scope.config = Configuracion.config;
+		console.log($scope.config)
 
 }])
 

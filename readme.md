@@ -83,3 +83,13 @@
 
 14. Crear un fichero de configuracion de tipo .json en la raiz
     - Se llamara `configuracion.json`
+
+## Preparando nuestro proyecto - Parte 3
+
+1. Hacer un servicio para que lea el archivo de configuracion
+    - Crear el directorio `angular/servicios`
+    - Crear el fichero `configuracion_service.js`
+    - Añadir la referencia en el fichero `index.html`
+    - Inyectar el servicio `facturacionApp.configuracion` en el modulo principal `app.js`
+
+2.
