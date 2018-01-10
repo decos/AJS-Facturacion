@@ -92,4 +92,9 @@
     - Añadir la referencia en el fichero `index.html`
     - Inyectar el servicio `facturacionApp.configuracion` en el modulo principal `app.js`
 
-2.
+2. Configurar el servicio para que devuelva una promesa
+    - Asignar el resultado a una variable llamada `config`
+
+3. Crear el filtro `quitarletra`
+
+4. Reemplazar los datos del fichero configuraciones.json en el index

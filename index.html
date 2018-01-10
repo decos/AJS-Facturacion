@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title>Sistema de {{config.aplicativo}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -68,17 +68,17 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="index.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>{{config.iniciales[0]}}</b>{{config.iniciales | quitarletra}}</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>{{config.aplicativo}}</b> {{config.iniciales}}</span>
     </a>
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
@@ -125,7 +125,7 @@ desired effect
     <section class="content" ng-view>
       <!--
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
       </ol>
       -->
@@ -139,10 +139,12 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      {{ config.version }}
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ config.anio }}
+      <a href="{{ config.web }}" target="_blank">Company</a>.
+    </strong> All rights reserved.
   </footer>
 
 </div>
