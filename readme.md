@@ -129,3 +129,31 @@
 
 3. Crear una base de datos con cotejamiento `utf8_spanish_ci`
     - Ejecutar el script de base de datos
+
+## Clientes - Parte 2
+
+1. Añadir el estilo personalizado `animate.css` al `index.html`
+
+2. Crear el directorio `clientes` en el proyecto
+    - Crear el fichero `clientes` dentro del directorio `clientes`
+    - Copiar el breadcrumb de `Dashboard` y adaptarlo a `clientes`
+    - Añadir una nueva ruta `clientes/clientes.html`
+
+3. Modificar el menu, añadir Dashboard y Clientes
+    - Dashboard : #!/
+    - Clientes : #!/clientes
+
+4. Codear las funciones globales en el controlador principal
+    - Codear la funcion `activar`
+
+5. Crear el directorio controladores `angular/controladores`
+    - Crear el fichero `clientesCtrl.js`
+    - Añadir la referencia del nuevo controlador en el index
+    - Inyectar el controlador de clientes en `app.js`
+    - Añadir en las rutas el `controller` con su valor
+    -
+
+    - Crear el fichero `dashboardCtrl.js`
+    - Añadir la referencia del nuevo controlador en el index
+    - Inyectar el controlador de dashboard en `app.js`
+    - Añadir en las rutas el `controller` con su valor

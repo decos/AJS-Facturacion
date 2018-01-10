@@ -24,12 +24,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   -->
   <link rel="stylesheet" href="dist/css/skins/skin-purple.min.css">
 
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="dist/css/animate.css">
+
   <!-- Importaciones de angular -->
   <script src="angular/lib/angular.min.js"></script>
   <script src="angular/lib/angular-route.min.js"></script>
 
   <!-- Controladores -->
   <script src="angular/app.js"></script>
+  <script src="angular/controladores/clientesCtrl.js"></script>
+  <script src="angular/controladores/dashboardCtrl.js"></script>
 
   <!-- Servicios -->
   <script src="angular/servicios/configuracion_service.js"></script>
@@ -117,8 +122,8 @@ desired effect
     <section class="content-header">
 
       <h1>
-        Page Header
-        <small>Optional description</small>
+        {{ titulo }}
+        <small>{{ subtitulo }}</small>
       </h1>
 
     </section>
