@@ -98,3 +98,22 @@
 3. Crear el filtro `quitarletra`
 
 4. Reemplazar los datos del fichero configuraciones.json en el index
+
+## Lógica de las notificaciones
+
+1. Crear el fichero `mensajes_service.js` (Arreglo de objetos `mensajes`)
+     - Codear el nuevo servicio
+     - Añadir la referencia en el fichero `index.html`
+     - Inyectar el servicio `facturacionApp.mensajes` en el modulo principal `app.js`
+
+2. Codear el fichero `mensajes.html`
+     - Añadir la directiva `ng-src`
+
+3. Crear el filtro `mensajecorto` y usarlo en la descripcion de los mensajes
+
+4. Crear el fichero `notificaciones_service.js` (Arreglo de objetos `mensajes`)
+     - Codear el nuevo servicio
+     - Añadir la referencia en el fichero `index.html`
+     - Inyectar el servicio `facturacionApp.notificaciones` en el modulo principal `app.js`
+
+5. Codear el fichero `notificaciones.html`
