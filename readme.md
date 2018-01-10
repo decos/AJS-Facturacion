@@ -117,3 +117,15 @@
      - Inyectar el servicio `facturacionApp.notificaciones` en el modulo principal `app.js`
 
 5. Codear el fichero `notificaciones.html`
+
+## Clientes - Parte 1
+
+1. Crear el directoio `php`
+    - Crear el fichero `clases`
+    - Copiar dentro del directorio anterior el fichero `class.Database.php`
+    - Configurar el acceso a la base de datos
+
+2. Añadir el archivo `animate.css` en el directorio `dist/css`
+
+3. Crear una base de datos con cotejamiento `utf8_spanish_ci`
+    - Ejecutar el script de base de datos
