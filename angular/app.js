@@ -4,7 +4,8 @@ var app = angular.module('facturacionApp',[
 		'facturacionApp.mensajes',
 		'facturacionApp.notificaciones',
 		'facturacionApp.clientesCtrl',
-		'facturacionApp.dashboardCtrl'
+		'facturacionApp.dashboardCtrl',
+		'facturacionApp.clientes'
 	]);
 
 app.controller('mainCtrl', ['$scope', 'Configuracion', 'Mensajes', 'Notificaciones',

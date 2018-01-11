@@ -151,9 +151,20 @@
     - Añadir la referencia del nuevo controlador en el index
     - Inyectar el controlador de clientes en `app.js`
     - Añadir en las rutas el `controller` con su valor
-    -
 
     - Crear el fichero `dashboardCtrl.js`
     - Añadir la referencia del nuevo controlador en el index
     - Inyectar el controlador de dashboard en `app.js`
     - Añadir en las rutas el `controller` con su valor
+
+## LISTADO DE CLIENTES PAGINADO
+
+1. Codear la tabla clientes en el fichero `clientes.html`
+    - Codear el boton `Agregar Cliente`
+
+2. Crear el servicio `clientes.js`
+    - Añadir la referencia del servicio en el `index`
+    - Inyectar el servicio en el controlador principal
+
+3. Crear el directorio `php/clientes` (todo lo relacionado con servicios)
+    - Crear el fichero `php/clientes/get.clientes.php`
