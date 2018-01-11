@@ -175,3 +175,22 @@
 5. Inyectar el servicio `Clientes` en el controlador `clientesCtrl`
 
 6. Mostrar la información en la vista `clientes.html`
+
+## LISTADO PAGINADO - PARTE 2
+
+1. Añadir el codigo para la paginacion en la vista de clientes
+    - Aparezcan todas las paginas
+    - El numero de la pagina actual debe estar sombreado
+
+2. Especificar en la ruta (clientes), un parametro más para las páginas
+    - /clientes/:pag
+
+3. Añadir una variable `pag` en el controlador `clientesCtrl`
+
+4. Pasar la variable `pag` usando el metodo GET del servicio `Clientes`
+
+5. Pasar como segundo parametro la variable `pag` en el archivo `get.clientes.php`
+
+6. Añadir la funcionalidad utilizando los números
+
+7. No usar href y usar la directiva `ng-click`

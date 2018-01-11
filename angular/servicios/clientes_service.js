@@ -13,10 +13,10 @@ app.factory('Clientes', ['$http', '$q', function($http, $q){
         'total_paginas' : 1,
         'paginas'	      : [],
 
-        cargarPagina : function(){
+        cargarPagina : function(pag){
             var q = $q.defer();
 
-            $http.get("php/clientes/get.clientes.php").then(
+            $http.get("php/clientes/get.clientes.php?pag=" + pag).then(
                 function success(response){
                     console.log("response clientes service", response);
 
