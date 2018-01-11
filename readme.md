@@ -168,3 +168,10 @@
 
 3. Crear el directorio `php/clientes` (todo lo relacionado con servicios)
     - Crear el fichero `php/clientes/get.clientes.php`
+
+4. Codear el servicio `clientes.js`
+    -  Llamar a la funcion `"php/clientes/get.clientes.php`
+
+5. Inyectar el servicio `Clientes` en el controlador `clientesCtrl`
+
+6. Mostrar la información en la vista `clientes.html`
