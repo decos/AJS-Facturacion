@@ -9,7 +9,7 @@ app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($
 
     $scope.activar('mClientes', '', 'Clientes', 'listado');
     $scope.clientes = {};
-    $scope.clienteSel = {};
+    $scope.clienteSels = {};
 
     $scope.moverA = function(pag){
         Clientes.cargarPagina(pag).then(function(){
