@@ -194,3 +194,21 @@
 6. Añadir la funcionalidad utilizando los números
 
 7. No usar href y usar la directiva `ng-click`
+
+# CLIENTES - APARIENCIA
+
+1. Crear el template `modal_cliente.html`
+
+2. Utilizar la directiva `ng-include` para agregar el modal a la vista `cliente.html`
+
+3. Añadir la directiva `ng-click` al boton edicion de la vista `cliente.html`
+
+4. Crear la funcion `mostrarModal` en el controlador del Cliente
+
+~~~
+Se agrego la clase `fade` al template modal para que se muestre con estilo
+~~~
+
+5. Agregar un form, con todos los campos que se podran editar por cliente en `modal_cliente.html`
+
+6. Utilizar `angular.copy` para copiar llenar los campos del objeto `clienteSel`

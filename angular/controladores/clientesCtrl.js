@@ -9,6 +9,7 @@ app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($
 
     $scope.activar('mClientes', '', 'Clientes', 'listado');
     $scope.clientes = {};
+    $scope.clienteSel = {};
 
     $scope.moverA = function(pag){
         Clientes.cargarPagina(pag).then(function(){
@@ -17,6 +18,15 @@ app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($
         });
     }
 
-    $scope.moverA(1);
+    $scope.moverA(pag);
+
+    //Mostrar modal de edición
+    $scope.mostrarModal = function(cliente){
+        console.log("Modal.cliente:" , cliente)
+
+        angular.copy(cliente, $scope.clienteSel)
+
+        $("#modal_cliente").modal();
+    }
 
 }])
