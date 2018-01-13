@@ -1,5 +1,6 @@
 var app = angular.module('facturacionApp',[
-		'ngRoute',
+		'ngRoute', //Rutas
+		'jcs-autoValidate', //Validaciones
 		'facturacionApp.configuracion',
 		'facturacionApp.mensajes',
 		'facturacionApp.notificaciones',
@@ -7,6 +8,17 @@ var app = angular.module('facturacionApp',[
 		'facturacionApp.dashboardCtrl',
 		'facturacionApp.clientes'
 	]);
+
+//Traducir mensajes de validacion a Español
+angular.module('jcs-autoValidate')
+		.run([
+		    'defaultErrorMessageResolver',
+		    function (defaultErrorMessageResolver) {
+		        // To change the root resource file path
+		        defaultErrorMessageResolver.setI18nFileRootPath('angular/lib');
+		        defaultErrorMessageResolver.setCulture('es-co');
+		    }
+]);
 
 app.controller('mainCtrl', ['$scope', 'Configuracion', 'Mensajes', 'Notificaciones',
 		function($scope, Configuracion, Mensajes, Notificaciones){

@@ -9,7 +9,7 @@ app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($
 
     $scope.activar('mClientes', '', 'Clientes', 'listado');
     $scope.clientes = {};
-    $scope.clienteSels = {};
+    $scope.clienteSel = {};
 
     $scope.moverA = function(pag){
         Clientes.cargarPagina(pag).then(function(){
@@ -27,6 +27,20 @@ app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($
         angular.copy(cliente, $scope.clienteSel)
 
         $("#modal_cliente").modal();
+    }
+
+    //Procesar data desde el modal `modal_cliente` (Tambien manejara el INSERT de la info)
+    $scope.guardar = function( cliente, frmCiente ){
+        console.log("clientesCtrl guardar")
+        Clientes.guardar(cliente).then(function(){
+            //Codigo cuando se actualizo
+
+            $("#modal_cliente").modal('hide');
+            
+            //Limpiar la variable del cliente seleccionado
+            $scope.clienteSel = {};
+            frmCiente.autoValidateFormOptions.resetForm();
+        });
     }
 
 }])

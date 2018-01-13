@@ -212,3 +212,58 @@ Se agrego la clase `fade` al template modal para que se muestre con estilo
 5. Agregar un form, con todos los campos que se podran editar por cliente en `modal_cliente.html`
 
 6. Utilizar `angular.copy` para copiar llenar los campos del objeto `clienteSel`
+
+# AUTOVALIDACION DE CLIENTES
+
+    Recursos:
+        - http://jonsamwell.github.io/angular-auto-validate/
+
+~~~
+Configuracion del archivo de validacion
+~~~
+
+1. Descarga el proyecto del primer recurso
+    - Copiar el fichero `jcs-auto-validate.min.js`
+    - Pegar el fichero en el directorio `angular/lib`
+    - Añadir la referencia en el index del proyecto
+    - Inyectar `jcs-autoValidate` en el modulo principal del proyecto `app.js`
+
+2. Añadir un `name` al formulario de nuestro `modal` Cliente
+    - name="frmCliente"
+
+3. El nombre y el correo seran obligatorios
+    - required
+
+4. Quitar al formulario la autovalidacion por defecto de HTML5
+    - novalidate
+
+5. Setear la Cultura `i18n` para traducir los mensajes a Español
+    - Configurar la ruta donde se encontra el archivo con las frases traducidas
+    - Configurar el idioma
+
+~~~
+Procesamiento de la data
+~~~
+
+6. Procesamiento de la Data desde el formulario
+    - Añadir la directiva `ng-submit` y setear como valor `guardar(clienteSel)`
+    - Enviar como parametro el cliente seleccionado
+
+7. Añadir la funcion `guardar(cliente)` en el controlador `clientesCtrl`
+    - Codear la funcion
+
+8. Añadir la funcion `guardar(cliente)` en el servicio `clientes_service`
+    - Coder la funcion
+
+9. Añadir el fichero `post.clienteguardar.php` al directorio `php/clientes`
+    - Codear la funcion
+
+~~~
+Cerrar el Modal despues de Procesar la data
+~~~
+
+10. Para cerrar el modal , añadimos en el controlador cliente , funcion `guardar`
+    - $("#modal_cliente").modal('hide');
+
+11. Enviar el formulario `frmCliente` a la hora de salvar los cambios
+    - ng-submit="guardar(clienteSel, frmCliente)"

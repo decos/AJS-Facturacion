@@ -13,12 +13,30 @@ app.factory('Clientes', ['$http', '$q', function($http, $q){
         'total_paginas' : 1,
         'paginas'	      : [],
 
+        guardar: function(cliente){
+            var q  = $q.defer();
+
+            $http.post('php/clientes/post.clienteguardar.php', cliente).then(
+                function success(response){
+                    console.log("response clientes guardar", response);
+
+
+
+                    q.resolve();
+                }, function error(response){
+                    console.error(response);
+                    q.reject("Error al guardar");
+                })
+
+            return q.promise;
+        },
+
         cargarPagina : function(pag){
             var q = $q.defer();
 
             $http.get("php/clientes/get.clientes.php?pag=" + pag).then(
                 function success(response){
-                    console.log("response clientes service", response);
+                    console.log("response clientes cargarPagina", response);
 
                     self.err           = response.data.err;
                     self.conteo        = response.data.conteo;
