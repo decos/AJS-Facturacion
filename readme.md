@@ -267,3 +267,10 @@ Cerrar el Modal despues de Procesar la data
 
 11. Enviar el formulario `frmCliente` a la hora de salvar los cambios
     - ng-submit="guardar(clienteSel, frmCliente)"
+
+# INSERTAR CLIENTE
+
+1.  Añadir al boton `Agregar Cliente` la siguiente opcion
+    - ng-click="mostrarModal({})"
+
+2. Codear en el fichero `post.clienteguardar.php` la logica para insertar a base de datos

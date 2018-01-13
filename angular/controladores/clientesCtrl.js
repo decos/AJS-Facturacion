@@ -36,9 +36,10 @@ app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($
             //Codigo cuando se actualizo
 
             $("#modal_cliente").modal('hide');
-            
+
             //Limpiar la variable del cliente seleccionado
             $scope.clienteSel = {};
+            //Aqui resetea el formulario a los estados iniciales
             frmCiente.autoValidateFormOptions.resetForm();
         });
     }

@@ -19,9 +19,7 @@ app.factory('Clientes', ['$http', '$q', function($http, $q){
             $http.post('php/clientes/post.clienteguardar.php', cliente).then(
                 function success(response){
                     console.log("response clientes guardar", response);
-
-
-
+                    self.cargarPagina(self.pag_actual);
                     q.resolve();
                 }, function error(response){
                     console.error(response);
