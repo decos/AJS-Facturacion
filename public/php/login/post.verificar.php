@@ -18,7 +18,7 @@ $respuesta = array(
 // ================================================
 //   Encriptar la contraseña maestra (UNICA VEZ)
 // ================================================
-// encriptar_usuario();
+//encriptar_usuario();
 
 
 
@@ -43,7 +43,7 @@ if(  isset( $request['usuario'] ) && isset( $request['contrasena'] ) ){ // ACTUA
 
 
 		// Encriptar usando el mismo metodo
-		// $pass = Database::uncrypt( $pass, $data_pass );
+		 $pass = Database::uncrypt( $pass, $data_pass );
 
 		// Verificar que sean iguales las contraseñas
 		if( $data_pass == $pass ){
@@ -78,16 +78,16 @@ echo json_encode( $respuesta );
 // ================================================
 //   Funcion para Encriptar
 // ================================================
-// function encriptar_usuario(){
+/*function encriptar_usuario(){
 
-// 	$usuario_id = '1';
-// 	$contrasena = '123456';
-// 	$contrasena_crypt = Database::crypt( $contrasena );
+ 	$usuario_id = '1';
+ 	$contrasena = '123456';
+ 	$contrasena_crypt = Database::crypt( $contrasena );
 
-// 	$sql = "UPDATE usuarios set contrasena = '$contrasena_crypt' where id = '$usuario_id'";
-// 	Database::ejecutar_idu($sql);
+ 	$sql = "UPDATE usuarios set contrasena = '$contrasena_crypt' where id = '$usuario_id'";
+ 	Database::ejecutar_idu($sql);
 
-// }
-
+ }
+*/
 
 ?>

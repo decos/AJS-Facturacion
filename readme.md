@@ -345,4 +345,23 @@ Cerrar el Modal despues de Procesar la data
     - session_start();
 
 7. Destruir la variable de sesion `user`
-    - unset($_SESSION['user']);
+    - unset()
+
+# ENCRIPTANDO LA CONTRASEÑA
+
+1. Descomentar la funcion `encriptar_usuario` y la linea numero 21 del fichero `post.verificar.php`
+
+2. Ingresamos a la siguiente URL para ejecutar la función descomentada
+    - http://127.0.0.1:8080/angularjs/AJS-Facturacion/public/
+
+3. Volver a comentar la funcion y la linea 21
+
+4. Descomentar la linea numero 48 para comparar la password que ingresas con la password descriptada de la base de datos
+
+5. Renombrar el fichero `index.html` del directorio `fac` y ponerle `index.php`
+
+6. Codear al inicio del index un mensaje `Acceso Denegado` para evitar el acceso sabiendo la url
+    - http://127.0.0.1:8080/angularjs/AJS-Facturacion/fac/#!/
+
+7. Codear el boton `Sing out`
+    - <a href="../public/" class="btn btn-default btn-flat">Sign out</a>
