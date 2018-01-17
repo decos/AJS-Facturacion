@@ -384,3 +384,12 @@ Cerrar el Modal despues de Procesar la data
     - `fac/php/clases/class.Database.php`
     - `fac/php/facturas/post.guardarfactura.php`
     - `fac/php/productos/get.producto.php`
+
+## MAESTRO DETALLE
+
+1. Añadir los siguientes campos al fichero `configuracion.json`
+    - Telefono
+    - Dirección
+    - ISV
+
+2.
