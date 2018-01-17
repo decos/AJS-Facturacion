@@ -1,47 +1,67 @@
-var app = angular.module('facturacionApp.clientesCtrl',[
+var app = angular.module('facturacionApp.clientesCrtl', []);
 
-]);
+// ================================================
+//   Controlador de clientes
+// ================================================
+app.controller('clientesCtrl', ['$scope','$routeParams', 'Clientes', function($scope, $routeParams, Clientes){
 
-//CONTROLADOR DE CLIENTES
-app.controller('clientesCtrl', ['$scope', '$routeParams', 'Clientes', function($scope, $routeParams, Clientes){
+	var pag = $routeParams.pag;
 
-    var pag =  $routeParams.pag;
 
-    $scope.activar('mClientes', '', 'Clientes', 'listado');
-    $scope.clientes = {};
-    $scope.clienteSel = {};
+	$scope.activar('mClientes','','Clientes','listado');
+	$scope.clientes   = {};
+	$scope.clienteSel = {};
 
-    $scope.moverA = function(pag){
-        Clientes.cargarPagina(pag).then(function(){
-            console.log("CLientes: ", Clientes)
-            $scope.clientes = Clientes;
-        });
-    }
 
-    $scope.moverA(pag);
+	$scope.moverA = function( pag ){
 
-    //Mostrar modal de edición
-    $scope.mostrarModal = function(cliente){
-        console.log("Modal.cliente:" , cliente)
+		Clientes.cargarPagina( pag ).then( function(){
+			$scope.clientes = Clientes;
+		});
 
-        angular.copy(cliente, $scope.clienteSel)
+	};
 
-        $("#modal_cliente").modal();
-    }
 
-    //Procesar data desde el modal `modal_cliente` (Tambien manejara el INSERT de la info)
-    $scope.guardar = function( cliente, frmCiente ){
-        console.log("clientesCtrl guardar")
-        Clientes.guardar(cliente).then(function(){
-            //Codigo cuando se actualizo
+	$scope.moverA(pag);
 
-            $("#modal_cliente").modal('hide');
 
-            //Limpiar la variable del cliente seleccionado
-            $scope.clienteSel = {};
-            //Aqui resetea el formulario a los estados iniciales
-            frmCiente.autoValidateFormOptions.resetForm();
-        });
-    }
+	// ================================================
+	//   Mostrar modal de edicion
+	// ================================================
+	$scope.mostrarModal = function( cliente ){
 
-}])
+		// console.log( cliente );
+		angular.copy( cliente, $scope.clienteSel );
+		$("#modal_cliente").modal();
+
+	}
+
+
+	// ================================================
+	//   Funcion para guardar
+	// ================================================
+	$scope.guardar = function( cliente, frmCliente){
+
+		Clientes.guardar( cliente ).then(function(){
+
+			// codigo cuando se actualizo
+			$("#modal_cliente").modal('hide');
+			$scope.clienteSel = {};
+
+			frmCliente.autoValidateFormOptions.resetForm();
+
+		});
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+}]);

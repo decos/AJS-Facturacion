@@ -1,26 +1,38 @@
-var app = angular.module('facturacionApp.configuracion', []);
+var app = angular.module('facturacionApp.configuracion',[]);
+
 
 app.factory('Configuracion', ['$http', '$q', function($http, $q){
+	
+	var self = {
 
-    var self = {
-        config: {},
-        cargar: function(){
-            var p = $q.defer();
+		config:{},
+		cargar: function(){
 
-            $http.get("configuracion.json")
-                .then(function success(response){
-                    self.config = response.data;
-                    p.resolve();
+			var d = $q.defer();
 
-                }, function error(){
-                    p.reject();
-                    console.log("No se pudo cargar el archivo de configuración")
-                })
+			$http.get('configuracion.json')
+				.success(function(data){
 
-            return p.promise;
-        }
-    };
+					self.config = data;
+					d.resolve();
 
-    return self;
+
+				})
+				.error(function(){
+
+					d.reject();
+					console.error("No se pudo cargar el archivo de configuración");
+
+				});
+
+			return d.promise;
+		}
+
+
+
+	};
+
+
+	return self;
 
 }])

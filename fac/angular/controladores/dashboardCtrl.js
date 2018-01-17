@@ -1,10 +1,14 @@
-var app = angular.module('facturacionApp.dashboardCtrl',[
+var app = angular.module('facturacionApp.dashboardCrtl', []);
 
-]);
-
-//CONTROLADOR DE CLIENTES
+// ================================================
+//   Controlador de clientes
+// ================================================
 app.controller('dashboardCtrl', ['$scope', function($scope){
+	
 
-    $scope.activar('mDashboard', '', 'Dashboard', 'información')
+	$scope.activar('mDashboard','','Dashboard','información');
 
-}])
+
+
+
+}]);

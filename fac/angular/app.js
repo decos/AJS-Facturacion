@@ -1,101 +1,149 @@
-var app = angular.module('facturacionApp',[
-		'ngRoute', //Rutas
-		'jcs-autoValidate', //Validaciones
+var app = angular.module( 'facturacionApp',[ 
+		'ngRoute', 'jcs-autoValidate',
+
 		'facturacionApp.configuracion',
 		'facturacionApp.mensajes',
 		'facturacionApp.notificaciones',
-		'facturacionApp.clientesCtrl',
-		'facturacionApp.dashboardCtrl',
-		'facturacionApp.clientes'
-	]);
+		'facturacionApp.clientes',
+		'facturacionApp.factura',
+		'facturacionApp.dashboardCrtl',
+		'facturacionApp.clientesCrtl',
+		'facturacionApp.facturasCrtl'
+		]);
 
-//Traducir mensajes de validacion a Español
 angular.module('jcs-autoValidate')
-		.run([
-		    'defaultErrorMessageResolver',
-		    function (defaultErrorMessageResolver) {
-		        // To change the root resource file path
-		        defaultErrorMessageResolver.setI18nFileRootPath('angular/lib');
-		        defaultErrorMessageResolver.setCulture('es-co');
-		    }
+.run([
+    'defaultErrorMessageResolver',
+    function (defaultErrorMessageResolver) {
+        // To change the root resource file path
+        defaultErrorMessageResolver.setI18nFileRootPath('angular/lib');
+        defaultErrorMessageResolver.setCulture('es-co');
+    }
 ]);
+           
 
-app.controller('mainCtrl', ['$scope', 'Configuracion', 'Mensajes', 'Notificaciones',
-		function($scope, Configuracion, Mensajes, Notificaciones){
 
-		$scope.config = {};
-		$scope.mensajes = Mensajes.mensajes;
-		$scope.notificaciones = Notificaciones.notificaciones;
+app.controller('mainCtrl', ['$scope', 'Configuracion','Mensajes', 'Notificaciones', function($scope, Configuracion,Mensajes, Notificaciones){
+	
+	$scope.config = {};
+	$scope.mensajes = Mensajes.mensajes;
+	$scope.notificaciones = Notificaciones.notificaciones;
 
-		$scope.titulo = "";
-		$scope.subtitulo = "";
+	$scope.titulo    = "";
+	$scope.subtitulo = "";
 
-		console.log("mensajes:", $scope.mensajes);
-		console.log("notificaciones:", $scope.notificaciones);
 
-		$scope.usuario = {
-				nombre : "Diego Abanto"
-		}
 
-		Configuracion.cargar().then(function(){
-				$scope.config = Configuracion.config;
-				console.log($scope.config);
+	$scope.usuario = {
+		nombre:"Fernando Herrera"
+	}
+
+
+
+
+	Configuracion.cargar().then( function(){
+		$scope.config = Configuracion.config;
+	});
+
+
+	// ================================================
+	//   Funciones Globales del Scope
+	// ================================================
+	$scope.activar = function( menu, submenu, titulo, subtitulo ){
+
+		$scope.titulo    = titulo;
+		$scope.subtitulo = subtitulo;
+
+		$scope.mDashboard = "";
+		$scope.mClientes  = "";
+
+		$scope[menu] = 'active';
+
+	};
+
+
+
+}]);
+
+// ================================================
+//   Directivas
+// ================================================
+app.directive('enterKey', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.enterKey);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
+
+  
+
+// ================================================
+//   Rutas
+// ================================================
+app.config([ '$routeProvider', function($routeProvider){
+
+	$routeProvider
+		.when('/',{
+			templateUrl: 'dashboard/dashboard.html',
+			controller: 'dashboardCtrl'
+		})
+		.when('/facturas',{
+			templateUrl: 'facturas/facturas.html',
+			// controller: 'clientesCtrl'
+		})
+		.when('/facturanueva',{
+			templateUrl: 'facturas/nueva_factura.html',
+			controller: 'facturaCtrl'
+		})
+		.when('/clientes/:pag',{
+			templateUrl: 'clientes/clientes.html',
+			controller: 'clientesCtrl'
+		})
+		.otherwise({
+			redirectTo: '/'
 		})
 
-		//FUNCIONES GLOBALES
+}]);
 
-		$scope.activar = function(menu, submenu, titulo, subtitulo){
 
-				$scope.titulo = titulo;
-				$scope.subtitulo = subtitulo;
+// ================================================
+//   Filtros
+// ================================================
+app.filter( 'quitarletra', function(){
 
-				$scope.mDashboard = "";
-				$scope.mClientes = "";
-
-				$scope[menu] = 'active';
+	return function(palabra){
+		if( palabra ){
+			if( palabra.length > 1)
+				return palabra.substr(1);
+			else
+				return palabra;
 		}
-
-}])
-
-//RUTAS
-app.config(['$routeProvider', function($routeProvider){
-		$routeProvider
-				.when('/', {
-						templateUrl: 'dashboard/dashboard.html',
-						controller: 'dashboardCtrl'
-				})
-				.when('/clientes/:pag', {
-						templateUrl: 'clientes/clientes.html',
-						controller: 'clientesCtrl'
-				})
-				.otherwise({
-						redirectTo: '/'
-				})
-}])
-
-//FILTROS
-app.filter('quitarletra', function(){
-		return function(palabra){
-				if(palabra){
-						if(palabra.length > 1){
-								return palabra.substr(1);
-						} else{
-								return palabra;
-						}
-				}
-
-		}
+	}
 })
 
-.filter('mensajecorto', function(){
-		return function(mensaje){
-				if(mensaje){
-						if(mensaje.length > 30){
-								return mensaje.substr(0,30) + "...";
-						} else{
-								return mensaje;
-						}
-				}
+.filter( 'mensajecorto', function(){
 
+	return function(mensaje){
+		if( mensaje ){
+			if( mensaje.length > 35)
+				return mensaje.substr(0,35) + "...";
+			else
+				return mensaje;
 		}
+	}
 })
+
+
+
+
+
+
+
+

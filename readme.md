@@ -391,3 +391,22 @@ Cerrar el Modal despues de Procesar la data
     - Telefono
     - Dirección
     - ISV
+
+2. Configurar la conexion a la base de datos
+
+## EXPLICANDO LO NUEVO
+
+1. Añadir las nuevas rutas en el fichero `app.js`
+
+2. Loguearse a la aplicacion web y hacer clic en la tarjeta `Nueva Factura`
+
+3. Hacer clic en el boton `Nueva Factura`
+
+4. Buscar por clientes, añadir el nombre `xavier` y hacer clic en `buscar` o `enter`
+
+5. Hacer clic en el `checkbox` para seleccionar el usuario elegido
+    - Se generara una factura nueva ( sin información )
+
+6. Ingresar los items por `codigo` y seleccionar la `cantidad`
+
+7. `enterKey` es una directiva personalizada creada en `app.js`
