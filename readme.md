@@ -195,7 +195,7 @@
 
 7. No usar href y usar la directiva `ng-click`
 
-# CLIENTES - APARIENCIA
+## CLIENTES - APARIENCIA
 
 1. Crear el template `modal_cliente.html`
 
@@ -213,7 +213,7 @@ Se agrego la clase `fade` al template modal para que se muestre con estilo
 
 6. Utilizar `angular.copy` para copiar llenar los campos del objeto `clienteSel`
 
-# AUTOVALIDACION DE CLIENTES
+## AUTOVALIDACION DE CLIENTES
 
     Recursos:
         - http://jonsamwell.github.io/angular-auto-validate/
@@ -268,16 +268,16 @@ Cerrar el Modal despues de Procesar la data
 11. Enviar el formulario `frmCliente` a la hora de salvar los cambios
     - ng-submit="guardar(clienteSel, frmCliente)"
 
-# INSERTAR CLIENTE
+## INSERTAR CLIENTE
 
 1.  Añadir al boton `Agregar Cliente` la siguiente opcion
     - ng-click="mostrarModal({})"
 
 2. Codear en el fichero `post.clienteguardar.php` la logica para insertar a base de datos
 
-## LOGIN PARA NUESTRA APLICACIÓN
+# LOGIN PARA NUESTRA APLICACIÓN
 
-# LOGIN Y UNOS CONCEPTOS DE SEGURIDAD
+## LOGIN Y UNOS CONCEPTOS DE SEGURIDAD
 
     Recursos:
         - usuarios.sql
@@ -301,7 +301,7 @@ Cerrar el Modal despues de Procesar la data
 
 9. Modificar las referencias del fichero `index.html` (login)
 
-# LOGIN - PARTE 2
+## LOGIN - PARTE 2
 
 1. Copiar el directorio `fac/angular` en el directorio `public`
 
@@ -322,7 +322,7 @@ Cerrar el Modal despues de Procesar la data
 8. Codear el controlador principal de login `mainCtrl`
     - Inyectar el servicio `LoginService` en el controlador
 
-# LOGIN - PARTE 3
+## LOGIN - PARTE 3
 
     Recursos:
         - `post.verificar.php`
@@ -347,7 +347,7 @@ Cerrar el Modal despues de Procesar la data
 7. Destruir la variable de sesion `user`
     - unset()
 
-# ENCRIPTANDO LA CONTRASEÑA
+## ENCRIPTANDO LA CONTRASEÑA
 
 1. Descomentar la funcion `encriptar_usuario` y la linea numero 21 del fichero `post.verificar.php`
 
@@ -356,7 +356,7 @@ Cerrar el Modal despues de Procesar la data
 
 3. Volver a comentar la funcion y la linea 21
 
-4. Descomentar la linea numero 48 para comparar la password que ingresas con la password descriptada de la base de datos
+4. Descomentar la linea numero 46 para comparar la password que ingresas con la password descriptada de la base de datos
 
 5. Renombrar el fichero `index.html` del directorio `fac` y ponerle `index.php`
 
@@ -365,3 +365,22 @@ Cerrar el Modal despues de Procesar la data
 
 7. Codear el boton `Sing out`
     - <a href="../public/" class="btn btn-default btn-flat">Sign out</a>
+
+# FACTURA
+
+## PREPARANDO EL SIGUIENTE PASO: MAESTRO - DETALLE
+
+1. Descargar el fichero adjunto de la sesión
+
+2. Ejecutar el script de base de datos `facturacion_db.sql`, generara las siguientes tablas:
+    - `facturas`
+    - `facturas_detalle`
+    - `productos`
+
+3. Añadir los siguientes ficheros en sus respectivos directorios:
+    - `fac/angular/servicios/factura_service.js`
+    - `fac/facturas/facturas.html`
+    - `fac/facturas/nueva_factura.html`
+    - `fac/php/clases/class.Database.php`
+    - `fac/php/facturas/post.guardarfactura.php`
+    - `fac/php/productos/get.producto.php`
